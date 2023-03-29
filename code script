@@ -1,0 +1,13 @@
+import openai
+openai.api_key = "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"
+openai.organization = "org-DfTgtA8GAANGGFJ0NNf2T3BlbkFJOjfNFR4QGRmADRz3vbxI"
+def generate_response(prompt):
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+    message = completion.choices[0].message.content.strip()
+    return message
+  
